@@ -1,2 +1,3 @@
-# sd-workshop1
-Repositorio para la entrega del taller 1 de sistemas distribuidos
+# Taller 1 Sistemas Distribuidos
+### Autor: Nicolás Machado Sáenz (A00052208)
+### Tema: Aprovisionamiento de Infraestructura con Vagrant y Chef
