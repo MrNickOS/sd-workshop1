@@ -39,4 +39,18 @@ al ejecutar ese script, la VM instala httpd usando estos comandos:
   iptables -I INPUT  -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
   service iptables save
   ```
+Al ejecutar este script (en los servidores web A y B) se procede a instalar el servidor de base de datos
+en su máquina correspondiente. Se ejecutan las recipes de los cookbooks correspondientes a MySQL; dentro
+de la VM, se siguen estas instrucciones:
 
+  ```bash
+  yum -y install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
+  yum -y install mysql-community-server
+  systemctl stop firewalld
+  systemctl mask firewalld
+  yum -y install iptables-services
+  systemctl enable iptables
+  service network restart
+  iptables -I INPUT 5 -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT
+  service iptables save
+  ```
