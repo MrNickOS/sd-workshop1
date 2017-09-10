@@ -6,5 +6,5 @@ En este primer taller, se realizará el aprovisionamiento de una pequeña infrae
 de los siguientes elementos:
   * Un servidor de base de datos.
   * Dos servidores web conectados a la base de datos.
-  * Un balanceador de cargas que alterna entre los web servers. <br>
-  * Una máquina física cliente, que en este caso es un equipo del Laboratorio.
+  * Un balanceador de cargas que alterna entre los web servers.
+  * Una máquina cliente, que es un equipo del Laboratorio.
