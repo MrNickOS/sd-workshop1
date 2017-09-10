@@ -14,10 +14,8 @@ Para el desarrollo de la actividad debe contarse con los siguientes recursos:
  * Vagrant
  * Boxes de CentOS 7.
  
- El primer paso es crear una estructura jerárquica de directorios asociados a los servicios que residirán
- en las máquinas a aprovisionar. Debe ser parecida a esta:
- 
- <<img estructura>>
+El primer paso es crear una estructura jerárquica de directorios asociados a los servicios que residirán
+en las máquinas a aprovisionar. 
  
 Los directorios httpd_a y httpd_b hacen referencia a los dos servidores web (principal y secundario) que
 permiten acceder al contenido de una base de datos. A continuación se listan los comandos para instalar y
@@ -166,3 +164,7 @@ httpd_a | _Contiene los archivos escritos en lenguaje Ruby y PHP para el servido
 httpd_b | _Ídem del anterior, aplica para el servidor web alternativo con IP 192.168.60.110. La estructura de directorio es la misma.
 mysql | Cookbook para la automatización del servidor de base de datos cuya IP es 192.168.60.120. En la carpeta _recipes_ se hallan los archivos de instalación y configuración (escritos en Ruby) del motor de BD MySQL; luego recurre a los archivos en _files/default_ para configurar un esquema (crea una base de datos inicial y dos usuarios con privilegios totales).
 nginx | Este "libro de cocina" gestiona el balanceador de carga tal que sea capaz de recibir máximo 2048 conexiones al tiempo; equilibra las cargas para no congestionar uno de los servidores web. En ese sentido, están dispuestos los archivos en _files/default_ para abrir el puerto 8080 que acepta y redirige las conexiones a los web servers. La dirección IP del balanceador es del Laboratorio, 192.168.130.145.
+
+## Evidencias de funcionamiento
+(https://github.com/MrNickOS/sd-workshop1/blob/A00052208/add-solution/ServidorPrimario.png)
+(https://github.com/MrNickOS/sd-workshop1/blob/A00052208/add-solution/ServidorSecundario.png)
