@@ -166,5 +166,5 @@ mysql | Cookbook para la automatización del servidor de base de datos cuya IP e
 nginx | Este "libro de cocina" gestiona el balanceador de carga tal que sea capaz de recibir máximo 2048 conexiones al tiempo; equilibra las cargas para no congestionar uno de los servidores web. En ese sentido, están dispuestos los archivos en _files/default_ para abrir el puerto 8080 que acepta y redirige las conexiones a los web servers. La dirección IP del balanceador es del Laboratorio, 192.168.130.145.
 
 ## Evidencias de funcionamiento
-(https://github.com/MrNickOS/sd-workshop1/blob/A00052208/add-solution/ServidorPrimario.png)
-(https://github.com/MrNickOS/sd-workshop1/blob/A00052208/add-solution/ServidorSecundario.png)
+!(https://github.com/MrNickOS/sd-workshop1/blob/A00052208/add-solution/ServidorPrimario.png)
+!(https://github.com/MrNickOS/sd-workshop1/blob/A00052208/add-solution/ServidorSecundario.png)
