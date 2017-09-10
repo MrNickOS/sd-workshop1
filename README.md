@@ -112,7 +112,7 @@ archivo de aprovisionamiento, donde se especifican las IP de cada máquina virtu
       vb.customize ["modifyvm", :id, "--memory", "1024","--cpus", "1", "--name", "load_balancer" ]
     end
     load.vm.provision :chef_solo do |chef|
-      #chef_install = false
+      chef_install = true
       chef.cookbooks_path = "cookbooks"
       chef.add_recipe "nginx"
     end
@@ -121,7 +121,6 @@ archivo de aprovisionamiento, donde se especifican las IP de cada máquina virtu
   config.vm.define :wb_server do |wb1|
     wb1.vm.box = "CentOS_1706_v0.2.0"
     wb1.vm.network :private_network, ip: "192.168.60.100"
-    # server.vm.network "public_network", bridge: "eth4", ip:"192.168.131.100", netmask: "255.255.255.0"
     wb1.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", "1024","--cpus", "1", "--name", "main_server" ]
     end
