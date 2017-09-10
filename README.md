@@ -158,3 +158,11 @@ archivo de aprovisionamiento, donde se especifican las IP de cada máquina virtu
   end
 end
   ```
+## Recetas empleadas
+Directorio | Descripción
+---------- | -----------
+cookbooks |
+httpd a | 
+httpd b | 
+mysql | 
+nginx | 
