@@ -8,3 +8,10 @@ de los siguientes elementos:
   * Dos servidores web conectados a la base de datos.
   * Un balanceador de cargas apuntando a los web servers.
   * Una máquina cliente (equipo físico del Laboratorio).
+
+Para el desarrollo de la actividad debe contarse con los siguientes recursos:
+ * Máquina física (Ubuntu 16.10 client)
+ * Vagrant
+ * Boxes de CentOS 7.
+ 
+ 
