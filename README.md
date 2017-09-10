@@ -92,7 +92,7 @@ La siguiente máquina a instalar y aprovisionar es el balanceador de carga. Se u
   systemctl enable iptables
   service network restart
   iptables -I INPUT  -p tcp -m state --state NEW -m tcp --dport 8080 -j ACCEPT
-	 service iptables save
+  service iptables save
   service httpd stop
-	 nginx
+  nginx
   ```
