@@ -24,6 +24,7 @@ permiten acceder al contenido de una base de datos. A continuación se listan lo
 configurar el servicio httpd; estos se automatizan desde un script denominado receta (escrito en Ruby);
 al ejecutar ese script, la VM instala httpd usando estos comandos:
 
+  ```bash
   yum install httpd
   yum install php
   yum install php-mysql
@@ -37,4 +38,5 @@ al ejecutar ese script, la VM instala httpd usando estos comandos:
   service network restart
   iptables -I INPUT  -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
   service iptables save
-  
+  ```
+
