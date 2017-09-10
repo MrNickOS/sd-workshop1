@@ -115,11 +115,6 @@ archivo de aprovisionamiento, donde se especifican las IP de cada máquina virtu
       #chef_install = false
       chef.cookbooks_path = "cookbooks"
       chef.add_recipe "nginx"
-      #chef.json = {
-      #  "web_servers" => [
-      #    {"ip":"192.168.60.100"},{"ip":"192.168.60.110"}
-      #  ]
-      #}
     end
   end
 
@@ -133,8 +128,7 @@ archivo de aprovisionamiento, donde se especifican las IP de cada máquina virtu
     wb1.vm.provision :chef_solo do |chef|
 	    chef.install = false
 	    chef.cookbooks_path = "cookbooks"
-	    chef.add_recipe "httpd_a"
-      #chef.json = {"courses" => [{"name" => "Sistemas Distribuidos"}, {"name" => "Redes Convergentes"}, {"name" => "PDG II"}]}
+	   chef.add_recipe "httpd_a"
     end
   end
 
@@ -148,7 +142,6 @@ archivo de aprovisionamiento, donde se especifican las IP de cada máquina virtu
         chef.install = false
         chef.cookbooks_path = "cookbooks"
         chef.add_recipe "httpd_b"
-        #chef.json = {"courses" => [{"name" => "Sistemas Distribuidos"}, {"name" => "Redes Convergentes"}, {"name" => "PDG II"}]}
     end
   end
 
