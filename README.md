@@ -161,8 +161,8 @@ end
 ## Recetas empleadas
 Directorio | Descripción
 ---------- | -----------
-cookbooks |
-httpd_a | 
-httpd_b | 
-mysql | 
-nginx | 
+cookbooks | Es el directorio principal de las recetas empleadas para el aprovisionamiento de todas las VM con sus servicios.
+httpd_a | _Contiene los archivos escritos en lenguaje Ruby y PHP para el servidor web principal, con direccion IP 192.168.60.100. En el folder _recipes_ puede encontrar los Ruby para la instalación de _httpd_, mientras que en _files/default_ residen los PHP que permiten la conexión entre el servidor y la base de datos.
+httpd_b | _Ídem del anterior, aplica para el servidor web alternativo con IP 192.168.60.110. La estructura de directorio es la misma.
+mysql | Cookbook para la automatización del servidor de base de datos cuya IP es 192.168.60.120. En la carpeta _recipes_ se hallan los archivos de instalación y configuración (escritos en Ruby) del motor de BD MySQL; luego recurre a los archivos en _files/default_ para configurar un esquema (crea una base de datos inicial y dos usuarios con privilegios totales).
+nginx | Este "libro de cocina" gestiona el balanceador de carga tal que sea capaz de recibir máximo 2048 conexiones al tiempo; equilibra las cargas para no congestionar uno de los servidores web. En ese sentido, están dispuestos los archivos en _files/default_ para abrir el puerto 8080 que acepta y redirige las conexiones a los web servers. La dirección IP del balanceador es del Laboratorio, 192.168.130.145.
