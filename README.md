@@ -162,7 +162,7 @@ end
 Directorio | Descripción
 ---------- | -----------
 cookbooks |
-httpd a | 
-httpd b | 
+httpd_a | 
+httpd_b | 
 mysql | 
 nginx | 
