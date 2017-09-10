@@ -96,3 +96,73 @@ La siguiente máquina a instalar y aprovisionar es el balanceador de carga. Se u
   service httpd stop
   nginx
   ```
+Estos comandos se ejecutarán desde el host anfitrión (el mismo del cliente) mediante el Vagrantfile o
+archivo de aprovisionamiento, donde se especifican las IP de cada máquina virtual.
+  ```ruby
+  # -*- mode: ruby -*-
+  # vi: set ft=ruby :
+
+  VAGRANTFILE_API_VERSION = "2"
+  Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.ssh.insert_key = false
+  config.vm.define :load_balancer do |load|
+    load.vm.box = "CentOS_1706_v0.2.0"
+    load.vm.network "public_network", bridge: "eno1", ip:"192.168.130.145", netmask: "255.255.255.0"
+    load.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "1024","--cpus", "1", "--name", "load_balancer" ]
+    end
+    load.vm.provision :chef_solo do |chef|
+      #chef_install = false
+      chef.cookbooks_path = "cookbooks"
+      chef.add_recipe "nginx"
+      #chef.json = {
+      #  "web_servers" => [
+      #    {"ip":"192.168.60.100"},{"ip":"192.168.60.110"}
+      #  ]
+      #}
+    end
+  end
+
+  config.vm.define :wb_server do |wb1|
+    wb1.vm.box = "CentOS_1706_v0.2.0"
+    wb1.vm.network :private_network, ip: "192.168.60.100"
+    # server.vm.network "public_network", bridge: "eth4", ip:"192.168.131.100", netmask: "255.255.255.0"
+    wb1.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "1024","--cpus", "1", "--name", "main_server" ]
+    end
+    wb1.vm.provision :chef_solo do |chef|
+	    chef.install = false
+	    chef.cookbooks_path = "cookbooks"
+	    chef.add_recipe "httpd_a"
+      #chef.json = {"courses" => [{"name" => "Sistemas Distribuidos"}, {"name" => "Redes Convergentes"}, {"name" => "PDG II"}]}
+    end
+  end
+
+  config.vm.define :web_server do |wb2|
+    wb2.vm.box = "CentOS_1706_v0.2.0"
+    wb2.vm.network :private_network, ip: "192.168.60.110"
+    wb2.vm.provider :virtualbox do |vbx|
+      vbx.customize ["modifyvm", :id, "--memory", "1024","--cpus", "1", "--name", "second_server" ]
+    end
+    wb2.vm.provision :chef_solo do |chef|
+        chef.install = false
+        chef.cookbooks_path = "cookbooks"
+        chef.add_recipe "httpd_b"
+        #chef.json = {"courses" => [{"name" => "Sistemas Distribuidos"}, {"name" => "Redes Convergentes"}, {"name" => "PDG II"}]}
+    end
+  end
+
+  config.vm.define :db_server do |db|
+    db.vm.box = "CentOS_1706_v0.2.0"
+    db.vm.network :private_network, ip: "192.168.60.120"
+    db.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "1024","--cpus", "1", "--name", "db_server" ]
+    end
+    db.vm.provision :chef_solo do |chef|
+        chef.install = true
+        chef.cookbooks_path = "cookbooks"
+        chef.add_recipe "mysql"
+    end
+  end
+end
+  ```
