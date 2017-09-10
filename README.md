@@ -76,3 +76,23 @@ unos usuarios que pueden acceder a ella con credenciales y desde equipos autoriz
   GRANT ALL PRIVILEGES ON *.* to 'usuario1'@'192.168.60.100' IDENTIFIED BY 'database2017' WITH GRANT OPTION;
   GRANT ALL PRIVILEGES ON *.* to 'usuario2'@'192.168.60.110' IDENTIFIED BY 'database2017' WITH GRANT OPTION;
   ```
+Los siguientes comandos son entonces para verificar que se puede acceder a la BD como root.
+  
+  ```bash
+  cat create_schema.sql | mysql -u root -pdistribuidos
+  ```
+  
+La siguiente máquina a instalar y aprovisionar es el balanceador de carga. Se usó NGINX como balanceador.
+
+  ```bash
+  yum -y install nginx
+  systemctl stop firewalld
+  systemctl mask firewalld
+  yum -y install iptables-services
+  systemctl enable iptables
+  service network restart
+  iptables -I INPUT  -p tcp -m state --state NEW -m tcp --dport 8080 -j ACCEPT
+	 service iptables save
+  service httpd stop
+	 nginx
+  ```
