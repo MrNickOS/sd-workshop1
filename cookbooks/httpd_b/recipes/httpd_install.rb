@@ -1,6 +1,6 @@
-#yum_package 'httpd' do
-#  action :install
-#end
+yum_package 'httpd' do
+  action :install
+end
 
 yum_package 'php' do
   action :install
