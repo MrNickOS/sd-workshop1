@@ -1,6 +1,3 @@
-#service 'nginx.service' do
-#	action [:start,:enable]
-#end
 bash 'open port' do
 	code <<-EOH
 	iptables -I INPUT  -p tcp -m state --state NEW -m tcp --dport 8080 -j ACCEPT
