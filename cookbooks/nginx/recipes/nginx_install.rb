@@ -1,6 +1,3 @@
-#yum_package 'epel-release'
-#yum_package 'nginx'
-
 template '/etc/yum.repos.d/nginx.repo' do
   source 'nginx.repo.erb'
 end
