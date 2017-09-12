@@ -1,7 +1,3 @@
-#service 'httpd' do
-#    action [:enable, :start]
-#end
-
 bash 'restart network' do
   code <<-EOH
   systemctl stop firewalld
