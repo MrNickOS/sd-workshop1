@@ -14,21 +14,21 @@ yum_package 'expect' do
   action :install
 end
 
-#cookbook_file '/tmp/configure_mysql.sh' do
-#  source 'configure_mysql.sh'
-#  mode 0711
-#  owner 'root'
-#  group 'wheel'
-#end
+cookbook_file '/tmp/configure_mysql.sh' do
+  source 'configure_mysql.sh'
+  mode 0711
+  owner 'root'
+  group 'wheel'
+end
 
-#bash 'configure mysql' do
-#  user 'root'
-#  group 'wheel'
-#  cwd '/tmp'
-#  code <<-EOH
-#  ./configure_mysql.sh
-#  EOH
-#end
+bash 'configure mysql' do
+  user 'root'
+  group 'wheel'
+  cwd '/tmp'
+  code <<-EOH
+  ./configure_mysql.sh
+  EOH
+end
 
 cookbook_file '/tmp/create_schema.sql' do
   source 'create_schema.sql'
