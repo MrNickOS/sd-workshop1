@@ -15,8 +15,11 @@ Para el desarrollo de la actividad debe contarse con los siguientes recursos:
  * Boxes de CentOS 7.
  
 El primer paso es crear una estructura jerárquica de directorios asociados a los servicios que residirán
-en las máquinas a aprovisionar. 
- 
+en las máquinas a aprovisionar. Esto debe hacerse dentro de una carpeta denominada cookbooks, y varias sub
+carpetas con los nombres de las herramientas relativas a los microservicios.
+
+![Evidencia](https://github.com/MrNickOS/sd-workshop1/blob/A00052208/add-solution/Tree%20(copy).png)
+
 Los directorios httpd_a y httpd_b hacen referencia a los dos servidores web (principal y secundario) que
 permiten acceder al contenido de una base de datos. A continuación se listan los comandos para instalar y
 configurar el servicio httpd; estos se automatizan desde un script denominado receta (escrito en Ruby);
@@ -169,3 +172,5 @@ nginx | Este "libro de cocina" gestiona el balanceador de carga tal que sea capa
 ![Evidencia](https://github.com/MrNickOS/sd-workshop1/blob/A00052208/add-solution/ServidorPrimario.png)
 
 ![Evidencia](https://github.com/MrNickOS/sd-workshop1/blob/A00052208/add-solution/ServidorSecundario.png)
+
+![Evidencia](https://github.com/MrNickOS/sd-workshop1/blob/A00052208/add-solution/ServidorBaseDatos.png)
